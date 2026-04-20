@@ -1,52 +1,58 @@
-# Changelog
+- # 更新日志
 
-## 0.7.3 - 2025-04-26
-- Updated sys3c to 0.4.0.
+  ## 0.7.3 - 2025-04-26
 
-## 0.7.2 - 2025-03-30
-- Fixed a bug where the build task was not found immediately after decompilation.
-- Updated xsys35c to 1.13.0.
+  - 将 sys3c 更新至 0.4.0。
 
-## 0.7.1 - 2025-01-10
-- Updated xsys35c to 1.12.0 and sys3c to 0.3.0.
+  ## 0.7.2 - 2025-03-30
 
-## 0.7.0 - 2024-12-28
-- Added support for decompiling / compiling / debugging System 1-3 games.
+  - 修复了反编译后立即找不到构建任务的问题。
+  - 将 xsys35c 更新至 1.13.0。
 
-## 0.6.1 - 2024-03-18
-- On Windows, use xsystem35.exe in the workspace folder by default. This is
-  currently the recommended way to install it.
-- Fixed an issue where the error `Error: there is no registered task type
-  'decompile'...` was displayed on the OUTPUT tab.
+  ## 0.7.1 - 2025-01-10
 
-## 0.6.0 - 2023-12-10
-- Added "Color Palette" view to the Run and Debug View of the side bar.
-  (requires xsystem35-sdl 2.10.0 or later)
+  - 将 xsys35c 更新至 1.12.0，sys3c 更新至 0.3.0。
 
-## 0.5.0 - 2023-11-21
-- Updated bundled xsys35c to 1.10.0.
-- Now "xsys35c: build" should appear in the list of build tasks shown by
-  `Ctrl`+`Shift`+`B`.
+  ## 0.7.0 - 2024-12-28
 
-## 0.4.0 - 2023-07-04
-- Show SDK documentation when hovering over System 3.x builtin commands.
+  - 增加了对 System 1-3 游戏的反编译 / 编译 / 调试支持。
 
-## 0.3.1 - 2023-01-26
-- Updated bundled xsys35c to 1.9.1.
+  ## 0.6.1 - 2024-03-18
 
-## 0.3.0 - 2022-11-06
-- Now xsys35c (compiler) and xsys35dc (decompiler) are included in the
-  extension and no longer need to be installed separately.
+  - 在 Windows 上，默认使用工作区文件夹中的 `xsystem35.exe`。目前这是推荐的安装方式。
+  - 修复了输出（OUTPUT）选项卡中显示错误 `Error: there is no registered task type 'decompile'...` 的问题。
 
-## 0.2.1 - 2022-01-04
-- The extension is now activated when an `.ADV` file is opened.
+  ## 0.6.0 - 2023-12-10
 
-## 0.2.0 - 2021-11-28
-- Added support for "Go to Definition" for functions.
-- The `executable` launch.json property was renamed to `program`. `executable`
-  can still be used for backward compatibility.
-- Added `env` launch.json property which specifies additional environment
-  variables for xsystem35.
+  - 在侧边栏的“运行和调试”视图中添加了“调色板”视图（需要 xsystem35-sdl2 2.10.0 或更高版本）。
 
-## 0.1.0 - 2021-11-12
-- Initial release.
+  ## 0.5.0 - 2023-11-21
+
+  - 将附带的 xsys35c 更新至 1.10.0。
+  - 现在 `Ctrl`+`Shift`+`B` 显示的构建任务列表中应出现 `xsys35c: build`。
+
+  ## 0.4.0 - 2023-07-04
+
+  - 鼠标悬停在 System 3.x 内置命令上时显示 SDK 文档。
+
+  ## 0.3.1 - 2023-01-26
+
+  - 将附带的 xsys35c 更新至 1.9.1。
+
+  ## 0.3.0 - 2022-11-06
+
+  - 现在 xsys35c（编译器）和 xsys35dc（反编译器）已包含在扩展中，不再需要单独安装。
+
+  ## 0.2.1 - 2022-01-04
+
+  - 现在打开 `.ADV` 文件时会激活扩展。
+
+  ## 0.2.0 - 2021-11-28
+
+  - 增加了对函数“跳转到定义”的支持。
+  - `launch.json` 中的 `executable` 属性已重命名为 `program`。为保持向后兼容，仍可使用 `executable`。
+  - 添加了 `launch.json` 的 `env` 属性，用于为 xsystem35 指定额外的环境变量。
+
+  ## 0.1.0 - 2021-11-12
+
+  - 首次发布。

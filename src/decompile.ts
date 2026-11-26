@@ -24,7 +24,8 @@ export async function decompileWorkspace(gameid?: string) {
 	let decompiler: Decompiler | undefined;
 	if (await hasMatchingFiles(folder, '*[sS]?.[aA][lL][dD]'))
 		decompiler = 'xsys35dc';
-	else if (await hasMatchingFiles(folder, '?[dD][iI][sS][kK].[dD][aA][tT]'))
+	else if (await hasMatchingFiles(folder, '?[dD][iI][sS][kK].[dD][aA][tT]') ||
+	         await hasMatchingFiles(folder, '[dD][iI][sS][kK]-?'))
 		decompiler = 'sys3dc';
 	if (!decompiler) return;
 
@@ -67,7 +68,7 @@ async function hasMatchingFiles(folder: vscode.WorkspaceFolder, pattern: string)
 function decompileWithExternalDecompiler(folder: string, decompilerPath: string, args: string[]): Promise<number | undefined> {
 	args.push(folder);
 	args.push('--outdir=src');
-	return executeDecompilation(new vscode.ShellExecution(decompilerPath, args));
+	return executeDecompilation(new vscode.ProcessExecution(decompilerPath, args));
 }
 
 function decompileInProcess(workspaceRoot: string, decompiler: Decompiler, args: string[]): Promise<number | undefined> {
@@ -90,7 +91,7 @@ async function openAdv(decompiler: Decompiler, workspaceUri: vscode.Uri) {
 	await vscode.commands.executeCommand('vscode.open', advUri);
 }
 
-async function executeDecompilation(execution: vscode.ShellExecution | vscode.CustomExecution): Promise<number | undefined> {
+async function executeDecompilation(execution: vscode.ProcessExecution | vscode.CustomExecution): Promise<number | undefined> {
 	const task = new vscode.Task(
 		{ type: taskType }, vscode.TaskScope.Workspace, 'decompile', taskType, execution);
 	const taskExecution = await vscode.tasks.executeTask(task);
